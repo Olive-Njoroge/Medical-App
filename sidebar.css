@@ -1,0 +1,33 @@
+*{
+    margin: 0;
+}
+
+.all{
+    background-color: #12171e;
+    height: 100vh;
+    top: 0;
+    width: 200px;
+}
+
+.top span{
+    color: white;
+    
+}
+
+.top i{
+    color: white;
+    margin: 5px
+}
+
+li{
+    list-style-type: none;
+}
+
+li .tooltip{
+    opacity: 0;
+}
+
+li:hover .tooltip{
+    opacity: 1;
+    cursor: pointer;
+}
