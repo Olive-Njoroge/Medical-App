@@ -7,28 +7,7 @@
     height: 100vh;
     top: 0;
     width: 200px;
-    
 }
-
-
-
-.notAll{
-    width:30px;
-    background-color: #12171e;
-    height: 100vh;
-    padding: 2px 0px;
-    max-height: 100%;
-}
-
-.notAll span{
-    visibility: hidden;
-}
-
-.notAll span:hover{
-    visibility: visible;
-}
-
-
 
 ul{
     margin: 5px;
