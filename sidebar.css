@@ -9,6 +9,22 @@
     width: 200px;
 }
 
+.notAll{
+    width:20px;
+
+}
+
+ul{
+    margin: 5px;
+    padding-left: 0;
+}
+
+
+i{
+    color: white;
+    
+}
+
 .top span{
     color: white;
     
@@ -30,4 +46,7 @@ li .tooltip{
 li:hover .tooltip{
     opacity: 1;
     cursor: pointer;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+    
+    
 }
