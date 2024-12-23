@@ -46,3 +46,13 @@ li:hover .tooltip{
     border-radius: 5px;
 }
 
+summary {
+    display: inline;
+}
+
+summary::-webkit-details-marker {
+    display: none;
+}
+
+
+
