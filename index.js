@@ -21,6 +21,8 @@ function displaySidebar() {
   tR.style.display = "none";
   let eC = document.querySelector(".eC");
   eC.style.display = "none";
+  let list = document.querySelector(".nav-item ol");
+  list.style.display = "none"; // Ensure the list is hidden initially
 }
 
 
@@ -60,5 +62,19 @@ function showDisplay(){
     tR.style.display = "inline";
     let eC = document.querySelector(".eC");
     eC.style.display = "inline";
-    
+    let list = document.querySelector(".nav-item ol");
+    list.style.display = "none"; // Keep the list hidden when sidebar expands
 }
+
+
+    
+
+
+navItem.addEventListener("click", () => {\
+    let list = document.querySelector(".nav-item ol");
+    if (list.style.display === "none" || list.style.display === "") {
+        list.style.display = "block"; // Show the list
+    } else {
+        list.style.display = "none"; // Hide the list
+    }
+});
