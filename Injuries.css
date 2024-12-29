@@ -8,7 +8,13 @@ body{
 }
 
 .fractures{
-    
+    width: 450px;
+    height: 300px;
+    border: 1px solid black;
+    border-radius: 8px;
+    /*display: none;*/
+    /*visibility: hidden;*/
+    visibility: hidden;
 }
 
 .sprains-strains{
@@ -16,5 +22,5 @@ body{
 }
 
 .arthritis{
-    
+
 }
