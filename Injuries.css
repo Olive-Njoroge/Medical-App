@@ -17,10 +17,60 @@ body{
     visibility: hidden;
 }
 
-.sprains-strains{
+.allFractures{
+    background-image: url(/images/fractureHealing.jpg);
+    margin-left: 140px;
+    box-shadow: 5px 5px 5px 1.5px #ffffff;
+}
 
+.sprains-strains{
+    width: 450px;
+    height: 300px;
+    border: 1px solid black;
+    border-radius: 8px;
+    /*display: none;*/
+    /*visibility: hidden;*/
+    visibility: hidden;
+}
+
+.allsprains-strains, .allFractures, .allArthritis{
+    border: 1px solid black;
+    width: 250px;
+    height: 100px;
+    border-radius: 8px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    /*right: 20px;
+    top: 20px;*/
+}
+
+.allFractures:hover,
+.allsprains-strains:hover,
+.allArthritis:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.allsprains-strains{
+    background-image: url(/images/strainVSsprain.png);
+    margin: auto;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    box-shadow:5px 5px 5px 1.5px #ffffff;
 }
 
 .arthritis{
-
+    visibility: hidden;
 }
+
+.allArthritis{
+    background-image: url(/images/arthritis.png);
+    margin-left: 540px;
+    box-shadow: 5px 5px 5px 1.5px #ffffff;
+}
+
+.all{
+    position: relative;
+}
+
