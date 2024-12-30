@@ -8,8 +8,19 @@ functions,bones of the body,muscles of the body-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Homepage</title>
     <link rel="stylesheet" href="homepage.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
 </head>
 <body>
+    <div class="dropDown">
+        <button onclick="myFunction()" class="dropbtn"><i class="bx bx-menu" id="btn"></i></button>
+        <div id="myDropdown" class="dropdown-content">
+            <a href="/index.html">Patient Education</a><br>
+            <a href="#">Professional Training</a><br>
+            <a href="#">Treatment Planning</a>
+        </div>
+    </div>
+
    
     <div class="everything">
         <img src="/images/image2.png" alt="image2">
@@ -36,9 +47,27 @@ functions,bones of the body,muscles of the body-->
         
 
     </div>
-    
 
 
-    
+    <script>
+        function myFunction() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+
+        // Close the dropdown menu if the user clicks outside of it
+        window.onclick = function (event) {
+            if (!event.target.matches('.dropbtn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+
+    </script>
 </body>
 </html>
