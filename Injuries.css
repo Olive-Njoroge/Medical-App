@@ -8,32 +8,31 @@ body{
 }
 
 .fractures{
-    width: 450px;
+    /*width: 450px;
     height: 300px;
     border: 1px solid black;
     border-radius: 8px;
     /*display: none;*/
     /*visibility: hidden;*/
-    visibility: hidden;
+    /*visibility: hidden;*/
 }
-
-.allFractures{
+/*.allFractures{
     background-image: url(/images/fractureHealing.jpg);
     margin-left: 140px;
     box-shadow: 5px 5px 5px 1.5px #ffffff;
-}
+}*/
 
 .sprains-strains{
-    width: 450px;
+    /*width: 450px;
     height: 300px;
-    border: 1px solid black;
+    /*border: 1px solid black;
     border-radius: 8px;
     /*display: none;*/
     /*visibility: hidden;*/
-    visibility: hidden;
+    /*visibility: hidden;*/
 }
 
-.allsprains-strains, .allFractures, .allArthritis{
+/*.allsprains-strains, .allFractures, .allArthritis{
     border: 1px solid black;
     width: 250px;
     height: 100px;
@@ -42,9 +41,9 @@ body{
     background-repeat: no-repeat;
     /*right: 20px;
     top: 20px;*/
-}
+}*/
 
-.allFractures:hover,
+/*.allFractures:hover,
 .allsprains-strains:hover,
 .allArthritis:hover {
     transform: scale(1.05);
@@ -58,13 +57,13 @@ body{
     margin-bottom: 10px;
     margin-top: 10px;
     box-shadow:5px 5px 5px 1.5px #ffffff;
-}
+}*/
 
 .arthritis{
     visibility: hidden;
 }
 
-.allArthritis{
+/*.allArthritis{
     background-image: url(/images/arthritis.png);
     margin-left: 540px;
     box-shadow: 5px 5px 5px 1.5px #ffffff;
@@ -72,5 +71,5 @@ body{
 
 .all{
     position: relative;
-}
+}*/
 
