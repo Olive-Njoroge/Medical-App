@@ -1,0 +1,43 @@
+*{
+    background-color: black;
+    color: white;
+
+}
+
+.contacts{
+    max-width: 400px;
+    top: 0;
+    background-color: #5A2DE8;
+    border-radius: 8px;
+    padding: 5px 3px;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+    margin-bottom: 10px;
+}
+
+.contacts p, .contacts h2{
+    background-color: #5A2DE8;
+}
+
+.contacts h2{
+    text-align: center;
+}
+
+button{
+    font-size: 24px;
+    border-radius: 5px;
+    margin-top: 30px;
+    background-color: #5A2DE8;
+    padding: 5px 4px;
+
+}
+
+.location{
+    max-width: 800px;
+    margin-left: 20px;
+    margin-top: 0px;
+}
+
+.all{
+    display: flex;
+    justify-content: space-between;
+}

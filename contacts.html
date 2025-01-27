@@ -4,14 +4,111 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacts</title>
+    <style>
+        #map {
+            height: 400px;
+            width: 100%;
+        }
+    </style>
+
+    <link rel="stylesheet" href="contacts.css">
 </head>
 <body>
-    <p>CRITICAL CARE AMBULANCE SERVICE-
-    0728 918000</p>
-    <p>EMERGENCY PLUS MEDICAL SERVICES -0700 395395</p>
-    <p>GLENCARE AMBULANCE SERVICES-0713 582224</p>
-    <p>St. John Ambulance Kenya - 020 600 600</p>
-    <p>Kenya Red Cross Society - Hotline: 1199 (Available nationwide)</p>
+    <div class="all">
+        <div class="contacts">
+            <h2>Emergency Contacts</h2>
+            <p>CRITICAL CARE AMBULANCE SERVICE-
+                0728 918000</p>
+            <p>EMERGENCY PLUS MEDICAL SERVICES -0700 395395</p>
+            <p>GLENCARE AMBULANCE SERVICES-0713 582224</p>
+            <p>St. John Ambulance Kenya - 020 600 600</p>
+            <p>Kenya Red Cross Society - Hotline: 1199 (Available nationwide)</p>
+        </div>
+        
+        
+        <div class="location">
+            <button>Click Me🏥</button>
+            <h1></h1>
+        
+            <h2>Nearby Hospitals:</h2>
+            <ul class="hospital-list"></ul>
+        </div>
+    </div>
+    
+
+    
+
+ 
+
+    
+    
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        function myLocation(){
+        const successCallback = (position) => {
+            console.log(position);
+            const latitude = position.coords.latitude;
+            const longitude = position.coords.longitude;
+
+            //fetch user's location
+            const geoLocationApi = `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}&localityLanguage=en`;
+            fetch(geoLocationApi).then ((res) => res.json()).then ((data) => {
+                let location = document.querySelector("h1");
+                location.innerHTML = data.principalSubdivision;
+                //console.log(data);
+        }).catch((err) => {
+            console.error("Error fetching location details: ", err);
+        });
+
+        
+
+        //fetch hospitals with orthopedic departments
+        fetchHospitals(latitude, longitude);
+    };
+
+        const errorCallback = (error) => {
+                const location = document.querySelector("h1");
+                location.innerHTML = "Unable to retrieve your location";
+                console.error("Geolocation error:", error);
+            };
+    
+
+            const fetchHospitals = async (latitude, longitude) => {
+                try{
+                const response = await fetch(
+                    `https://nominatim.openstreetmap.org/search.php?q=hospital&format=json&addressdetails=1&limit=10&bounded=1&viewbox=${longitude - 0.1},${latitude + 0.1},${longitude + 0.1},${latitude - 0.1}`
+                );
+                const hospitals = await response.json();
+                console.log(hospitals); // List of nearby hospitals
+
+                 
+            //display hospitals in a list
+            const hospitalList = document.querySelector(".hospital-list");
+               hospitalList.innerHTML = hospitals
+                   .map((hospital) => `<li>${hospital.display_name}</li>`)
+                      .join("");
+           }catch (error) {
+               console.error("Error fetching hospitals:", error);
+           }
+        };
+
+            //fetchHospitals(latitude, longitude);
+        //};
+
+        
+
+        navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+    }
+
+
+        let locationButton = document.querySelector(".location");
+        locationButton.addEventListener("click", myLocation);
+
+
+        
+
+    </script>
+    
     
 </body>
 </html>
