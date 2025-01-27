@@ -89,6 +89,259 @@ Would you like help integrating one of these features?-->
 <p>Here's a video of exercise that helps with lower back pain.</p>
 <a href="https://www.youtube.com/watch?v=jQQ_yOVenRs" target="_blank">Exercise for low back pain</a>
 
+<hr>
+
+<h1>Injury Prevention Tips</h1>
+
+<div class="category">
+    <h2>General Tips</h2>
+    <div class="tip">Warm up before any physical activity (5-10 minutes of dynamic stretching).</div>
+    <div class="tip">Use proper equipment, like supportive footwear or braces.</div>
+    <div class="tip">Maintain proper technique during exercises and sports.</div>
+    <div class="tip">Avoid overtraining by scheduling rest days.</div>
+</div>
+
+<div class="category">
+    <h2>For Runners</h2>
+    <div class="tip">Gradually increase mileage by no more than 10% per week.</div>
+    <div class="tip">Run on even surfaces to avoid ankle injuries.</div>
+</div>
+
+<div class="category">
+    <h2>For Weightlifters</h2>
+    <div class="tip">Always use proper form and avoid lifting too much weight.</div>
+    <div class="tip">Engage your core during lifts to protect your spine.</div>
+</div>
+
+<div class="category">
+    <h2>For Office Workers</h2>
+    <div class="tip">Adjust your workstation to avoid back and neck strain.</div>
+    <div class="tip">Take short breaks every 30 minutes to stretch and move.</div>
+</div>
+
+<hr>
+
+<h2>Best Practices for Recovery</h2>
+<ul>
+    <li>Follow medical advice and stick to prescribed physical therapy plans.</li>
+    <li>Avoid pushing through pain or rushing recovery.</li>
+    <li>Prioritize proper nutrition for healing (e.g., protein, vitamin C, calcium).</li>
+    <li>Stay consistent with exercises and monitor progress.</li>
+</ul>
+
+<h2>Post-Surgery Care</h2>
+<ul>
+    <li>Wound Care: Keep the surgical area clean and dry.</li>
+    <li>Pain Management: Use prescribed medications and non-invasive techniques like ice or elevation.</li>
+    <li>Physiotherapy: Attend regular sessions to regain mobility.</li>
+    <li>Prevent Complications: Watch for signs of infection, blood clots, or excessive swelling.</li>
+</ul>
+
+<form id="recoveryForm">
+    <label for="injuryType">Injury Type:</label>
+    <select id="injuryType">
+        <option value="ACL">ACL Tear</option>
+        <option value="Shoulder">Shoulder Surgery</option>
+        <option value="Fracture">Fracture</option>
+    </select>
+
+    <label for="recoveryGoal">Recovery Goal:</label>
+    <select id="recoveryGoal">
+        <option value="sport">Return to Sport</option>
+        <option value="mobility">Daily Mobility</option>
+    </select>
+
+    <button type="submit">Get Recovery Plan</button>
+</form>
+<div id="recoveryPlan"></div>
+<script>
+    document.getElementById('recoveryForm').addEventListener('submit', (event) => {
+            event.preventDefault();
+            const injury = document.getElementById('injuryType').value;
+            const goal = document.getElementById('recoveryGoal').value;
+
+            let plan = 'Your Recovery Plan:\n';
+            if (injury === 'ACL') {
+                plan += 'Follow knee-strengthening exercises and balance drills.\n';
+            } else if (injury === 'Shoulder') {
+                plan += 'Focus on range of motion and rotator cuff strengthening.\n';
+            } else if (injury === 'Fracture') {
+                plan +=
+                    'Early Phase: Rest and immobilization (cast, splint, or brace).\n' +
+                    'Mid Phase: Gradual range-of-motion exercises to reduce stiffness.\n' +
+                    'Late Phase: Light weight-bearing and strengthening exercises.\n';
+            }
+
+            plan += goal === 'sport'
+                ? 'Add sport-specific training in the final phase.'
+                : 'Gradually increase daily activities as tolerated.';
+
+            document.getElementById('recoveryPlan').innerText = plan;
+        });
+</script>
+
+<!--<script>
+fetch('https://api.openai.com/v1/completions', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer YOUR_API_KEY`,
+        },
+        body: JSON.stringify({
+            model: 'text-davinci-003',
+            prompt: 'Generate a rehabilitation plan for a rotator cuff surgery.',
+            max_tokens: 200,
+        }),
+    })
+        .then((response) => response.json())
+        .then((data) => {
+            document.getElementById('recoveryPlan').innerText = data.choices[0].text;
+        });
+</script>-->
+
+<hr>
+<label for="condition">Select a Condition:</label>
+<select id="condition">
+    <option value="arthritis">Arthritis</option>
+    <option value="scoliosis">Scoliosis</option>
+    <option value="jointIssues">Joint Issues</option>
+</select>
+
+<div id="conditionInfo"></div>
+
+<script>
+    const conditionInfo = {
+            arthritis: {
+                overview: "Arthritis is the inflammation of one or more joints, causing pain and stiffness.",
+                treatment: "Options include medications, physical therapy, and joint replacement surgeries.",
+                management: "Focus on low-impact exercises, healthy weight management, and joint care.",
+                tips: "Avoid high-impact activities; include anti-inflammatory foods in your diet."
+            },
+            scoliosis: {
+                overview: "Scoliosis is a sideways curvature of the spine, often diagnosed in adolescence.",
+                treatment: "Includes observation, bracing, or surgery for severe cases.",
+                management: "Perform posture-correcting exercises and stretches to alleviate discomfort.",
+                tips: "Avoid heavy lifting or activities that strain the back."
+            },
+            jointIssues: {
+                overview: "Joint issues like bursitis and tendonitis cause pain and swelling in affected areas.",
+                treatment: "Rest, ice, anti-inflammatory medications, and physical therapy are common treatments.",
+                management: "Incorporate stretching, strengthening exercises, and proper ergonomics.",
+                tips: "Avoid repetitive motions and overuse of affected joints."
+            }
+        };
+
+        document.getElementById('condition').addEventListener('change', (event) => {
+            const condition = event.target.value;
+            const info = conditionInfo[condition];
+            const conditionDiv = document.getElementById('conditionInfo');
+
+            conditionDiv.innerHTML = `
+    <h2>${condition.charAt(0).toUpperCase() + condition.slice(1)}</h2>
+    <p><strong>Overview:</strong> ${info.overview}</p>
+    <p><strong>Treatment Options:</strong> ${info.treatment}</p>
+    <p><strong>Management Tips:</strong> ${info.management}</p>
+    <p><strong>Do's and Don’ts:</strong> ${info.tips}</p>
+  `;
+        });
+
+</script>
+
+<hr>
+<h1>First Aid For Orthopedic injuries</h1>
+<h2>Dislocated joints</h2>
+<h3>Symptoms of Dislocation</h3>
+<ul>
+    <li>Severe pain and inability to move the joint.</li>
+    <li>Visible deformity or abnormal positioning of the joint.</li>
+    <li>Swelling and bruising.</li>
+</ul>
+
+<h3>Dislocated Joint - First-Aid Steps</h3>
+<p>Dislocations are serious injuries that require prompt medical attention.</p>
+<ol>
+    <li><strong>Do not attempt to relocate the joint.</strong> Trying to do so can cause more damage.</li>
+    <li><strong>Stabilize the joint</strong> by immobilizing it with a splint or sling.</li>
+    <li><strong>Apply ice</strong> to reduce swelling and numb the pain. Use a cloth to wrap the ice to avoid frostbite.
+    </li>
+    <li><strong>Get medical help immediately.</strong> Dislocations often require professional medical intervention to
+        properly reset the joint.</li>
+</ol>
+
+<h2>Sprained Ankle</h2>
+<h3>Symptoms of a Sprained Ankle</h3>
+<ul>
+    <li>Swelling around the ankle joint.</li>
+    <li>Bruising.</li>
+    <li>Pain when bearing weight or moving the ankle.</li>
+    <li>Limited range of motion.</li>
+</ul>
+
+<h3>Sprained Ankle - First-Aid Steps</h3>
+<p>A sprained ankle involves overstretched ligaments around the ankle joint. Here's how to help:</p>
+<ol>
+    <li><strong>Rest</strong> the ankle and avoid putting weight on it. Elevate the leg when possible.</li>
+    <li><strong>Ice</strong> the area to reduce swelling. Apply for 15-20 minutes every 1-2 hours during the first 48
+        hours.</li>
+    <li><strong>Compression</strong> with an elastic bandage can help control swelling, but avoid wrapping it too
+        tightly.</li>
+    <li><strong>Elevation</strong> above the level of the heart is crucial for reducing swelling.</li>
+    <li>If the ankle is extremely painful or swollen, <strong>seek medical attention</strong> immediately.</li>
+</ol>
+
+<h2>Fractures</h2>
+<h3>Symptoms of a Fracture</h3>
+<ul>
+    <li>Severe pain.</li>
+    <li>Swelling and bruising.</li>
+    <li>Deformity or an unnatural position of the limb.</li>
+    <li>Inability to move or use the injured part.</li>
+</ul>
+
+<h3>Fracture - First-Aid Steps</h3>
+<p>Fractures are serious and require immediate attention. Follow these steps:</p>
+<ol>
+    <li><strong>Do not attempt to move the injured limb</strong>. If possible, keep the patient still.</li>
+    <li><strong>Immobilize the fracture</strong> using a splint, stick, or any rigid material. Ensure the limb is held
+        in place.</li>
+    <li><strong>Apply ice</strong> to the injury site to reduce swelling and numb the pain.</li>
+    <li>If there’s bleeding, apply gentle pressure to control it with a clean cloth or bandage.</li>
+    <li><strong>Seek medical help immediately</strong> to properly realign and treat the fracture.</li>
+</ol>
+
+
+<h2>Soft Tissue Injuries (Strains, Sprains, Contusions)</h2>
+<h3>Symptoms of Soft Tissue Injuries</h3>
+<ul>
+    <li>Pain at the injury site.</li>
+    <li>Swelling and bruising.</li>
+    <li>Difficulty moving the injured area.</li>
+</ul>
+
+<h3>Soft Tissue Injuries - First-Aid Steps</h3>
+<p>Soft tissue injuries such as strains and sprains can be painful but manageable with the right care:</p>
+<ol>
+    <li><strong>Rest</strong> the injured area to avoid further strain.</li>
+    <li><strong>Ice</strong> the injury to control swelling and alleviate pain.</li>
+    <li><strong>Compression</strong> with an elastic bandage can help reduce swelling.</li>
+    <li><strong>Elevation</strong> above the heart will help decrease swelling.</li>
+    <li>If symptoms persist or worsen, <strong>seek medical attention</strong> for further evaluation.</li>
+</ol>
+
+
+<button onclick="window.location.href='tel:+1234567890'">Call Emergency Services</button>
+
+
+
+
+
+
+
+
+
+
+
+
     
 </body>
 </html>
