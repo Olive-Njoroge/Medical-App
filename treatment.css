@@ -33,3 +33,11 @@ button{
     font-size: 12px;
     border-radius: 6px;
 }
+
+#save{
+    display: inline;
+}
+
+#update{
+    margin-left: 50px;
+}
