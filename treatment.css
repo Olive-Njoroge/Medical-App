@@ -19,9 +19,16 @@ textarea{
     background-color: white;
     border-radius: 5px;
     padding: 5px;
+    color: black;
 }
 
 .treatment-plan{
     max-width: 600px;
     margin: auto;
+}
+
+button{
+    padding: 5px;
+    font-size: 12px;
+    border-radius: 6px;
 }
