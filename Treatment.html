@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Treatment Planning</title>
+</head>
+<body>
+    <div class="treatment-plan">
+        <h2>Treatment Plan</h2>
+        <form id="treatment-plan-form">
+            <label for="patient-name">Patient Name:</label>
+            <input type="text" id="patient-name" required /><br>
+    
+            <label for="condition">Condition:</label>
+            <textarea id="condition" required></textarea><br>
+    
+            <label for="treatment-steps">Treatment Steps:</label>
+            <textarea id="treatment-steps" required></textarea><br>
+    
+            <label for="notes">Additional Notes:</label>
+            <textarea id="notes"></textarea><br><br>
+    
+            <button type="submit">Save Treatment Plan</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('treatment-plan-form').addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                const treatmentPlan = {
+                    patientName: document.getElementById('patient-name').value,
+                    condition: document.getElementById('condition').value,
+                    treatmentSteps: document.getElementById('treatment-steps').value,
+                    notes: document.getElementById('notes').value,
+                };
+
+                localStorage.setItem('treatmentPlan', JSON.stringify(treatmentPlan));
+                alert('Treatment plan saved successfully!');
+            });
+
+    </script>
+
+    <script>
+        const savedPlan = JSON.parse(localStorage.getItem('treatmentPlan'));
+            if (savedPlan) {
+                document.querySelector('.treatment-plan').innerHTML += `
+    <h3>Saved Treatment Plan:</h3>
+    <p><strong>Patient Name:</strong> ${savedPlan.patientName}</p>
+    <p><strong>Condition:</strong> ${savedPlan.condition}</p>
+    <p><strong>Treatment Steps:</strong> ${savedPlan.treatmentSteps}</p>
+    <p><strong>Notes:</strong> ${savedPlan.notes}</p>
+  `;
+            }
+
+    </script>
+    
+</body>
+</html>
